@@ -1,0 +1,47 @@
+<meta charset = "utf-8">
+<script>
+
+var points = 0;
+var first_round = Math.random()*11;
+var points = Math.round (first_round);
+
+alert("Ваша карта " + points);
+
+var points2 = 0;
+var second_round = Math.random()*11;
+var points2 = Math.round (second_round);
+
+alert("Ваша карта " + points2);
+
+var choose = (prompt ("Ещё карту? Если да - жмите 1, если нет - 2") );
+    if ( (choose) == "1") {
+        var points3 = 0;
+        var third_round = Math.random()*11;
+        var points3 = Math.round (third.round);
+        alert("Ваша карта " + points3);
+       
+        var points_sum2 =  (points) + (points2) + (points3); 
+        alert(points_sum2); 
+    }else if ((choose) == "2"){
+      var points_sum1 =  (points) + (points2); 
+      alert(points_sum1);  
+    }else{
+        alert("Вы не выбрали ничего, Вы дисквалифицированы :( )");
+    }
+    
+    
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
