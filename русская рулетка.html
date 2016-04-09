@@ -1,16 +1,16 @@
 <meta charset = "utf-8">
 <script>
 
-var n = 0;
+var round = 0;
 do {
     if ((Math.random() * 6) < 1) {
         alert("Игра закончена");
         break;
     }
-    n++;
-} while (true)
+    round++;
+} while (prompt ("Если желаете продолжать, введите 23, если нет - другое") == "23");
 
-alert("Раундов сыграно:  " + n);
+alert("Раундов сыграно:  " + round);
 
 </script>
 
