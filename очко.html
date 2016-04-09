@@ -21,10 +21,27 @@ var choose = (prompt ("Ещё карту? Если да - жмите 1, если
         alert("Ваша карта " + points3);
        
         var points_sum2 =  (points) + (points2) + (points3); 
-        alert(points_sum2); 
+        alert("Ваш результат " + points_sum2);
+        
+            if (points_sum2 == 21){
+                alert("Вы виграли!!!");
+            }else if (points_sum2 < 21) {
+                alert("Упс, недобор");
+            }else{
+                alert("Перебор...");
+            }
+         
     }else if ((choose) == "2"){
       var points_sum1 =  (points) + (points2); 
-      alert(points_sum1);  
+      alert("Ваш результат " + points_sum1);  
+      
+            if (points_sum1 == 21){
+                alert("Вы виграли!!!");
+            }else if (points_sum1 < 21) {
+                alert("Упс, недобор");
+            }else{
+                alert("Перебор...");
+            }
     }else{
         alert("Вы не выбрали ничего, Вы дисквалифицированы :( )");
     }
