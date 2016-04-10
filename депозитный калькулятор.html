@@ -1,0 +1,17 @@
+<meta charset="utf-8">
+<script>
+
+var sum = parseInt(prompt("Введите сумму вклада: "));
+var percent = parseInt(prompt("Введите ставку годовых: "));
+var years = parseInt(prompt("Введите срок действия вклада: "));
+
+for (var hope = 1; hope <= years; hope++) {
+    sum = sum + sum * percent / 100;
+    alert("Срок вклада: " + hope + " Ваша сумма на счету: " + Math.floor(sum) );
+      
+        }  
+    
+    
+    
+    
+</script>    
