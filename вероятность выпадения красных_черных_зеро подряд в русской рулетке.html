@@ -1,0 +1,60 @@
+<meta charset="utf-8">
+<script>
+    
+var arr = [];
+var rounds = 1000000;
+var n = 0;
+var i = 0;
+var max_length_r = 0;
+var length_r = 0;
+var max_length_b = 0;
+var length_b = 0;
+var max_length_z = 0;
+var length_z = 0;
+
+for (i=0; i <= rounds; i++) {
+    n = Math.round(Math.random()*36);
+    if (n != 0) {
+        n = (n % 2) * 2 - 1;
+    }
+    arr.push(n);
+}
+
+alert(arr);
+
+for (i=0; i<arr.length; i++) {
+    if (arr[i] == 1) {
+        length_r = 0;
+        while(i<arr.length && arr[i] == 1) {
+            i++;
+            length_r++;
+        }
+        if (length_r > max_length_r) {
+            max_length_r = length_r;
+        }
+    }else if (arr[i] == -1) {
+        length_b = 0;
+        while(i<arr.length && arr[i] == -1) {
+            i++;
+            length_b++;
+        }
+        if (length_b > max_length_b) {
+            max_length_b = length_b;
+        }
+    }else{
+        length_z = 0;
+        while(i<arr.length && arr[i] == 0){
+            i++;
+            length_z++;
+        }
+        if (length_z > max_length_z) {
+            max_length_z = length_z;
+        }
+    }
+}
+
+alert("Максимально длинная последовательность красных чисел равна: " + max_length_r);
+alert("Максимально длинная последовательность черных чисел равна: " + max_length_b);
+alert("Максимально длинная последовательность зеро равна: " + max_length_z);
+
+</script>    
