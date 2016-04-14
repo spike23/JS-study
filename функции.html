@@ -1,0 +1,25 @@
+<meta charset="utf-8">
+<script>
+
+var a1 = 54; var b1 = 2314; var c1 = 456;
+var a2 = 346; var b2 = 413; var c2 = 467;
+var a3 = 890; var b3 = 7085; var c3 = 147;
+
+var res1; var res2; var res3; var Result;
+
+function Max(a, b, c) {
+    if ( (a > b) && (a > c)) {
+     return a;   
+    } else if (b > c) {
+        return b;
+    }else{
+        return c;
+    }
+}
+    res1 = Max(a1, b1, c1);
+    res2 = Max(a2, b2, c2);
+    res3 = Max(a3, b3, c3);
+    Result = Max(res1, res2, res3);
+    alert('Максимальное число в данной выборке: ' + Result);
+    
+</script>    
