@@ -2,35 +2,35 @@
 <script>
  
  function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min)) + min;
+  return Math.floor(Math.random()* (max - min + 1)) + min;
 }
 
 function getCard() {
     var cards = ['6','7','8','9','10','J','Q','K','A'];
-    return cards [getRandomInt(0, cards.length -1)];
+    return cards[getRandomInt(0, cards.length -1)];
 }
 
 function getSum(hand) {
     
     var sum = 0;
     
-    for (var i = 0; i < hand.length; i++) {
+    for (var i=0; i<hand.length; i++) {
         var card = hand[i];
         if (card != 'A') {
             if (card == 'J' || card == 'Q' || card == 'K') {
                 sum = sum + 10;
-            }else{
+            } else {
                 sum = sum + parseInt(card);
             }
         }
     }
     
-    for (var i = 0; i < hand.length; i++) {
+    for (var i=0; i<hand.length; i++) {
         var card = hand[i];
         if (card == 'A') {
             if (sum > 10) {
                 sum = sum + 1;
-            }else{
+            } else {
                 sum = sum +11;
             }
         }
@@ -40,7 +40,7 @@ function getSum(hand) {
 }
 
 function getStatus() {
-    return 'Дилер: ' + dealer.join(' ') + ' Игрок: ' + player.join(' ') + ' ';
+    return 'Дилер: ' + dealer.join(' ') + ' Игрок: ' + player.join(' ') + '_';
 }
  
 var dealer = [getCard()];
@@ -48,7 +48,7 @@ var player = [getCard(), getCard()];
 
 if (getSum(player) == 21) {
     alert('Black Jack !!!');
-}else{
+} else {
     var answer = '';
 
     do {
@@ -59,11 +59,11 @@ if (getSum(player) == 21) {
             if (sum > 21) {
                 alert('Перебор (( ' + getStatus());
                 break;
-            }else if (sum == 21){
+            } else if (sum == 21) {
                 alert('Black Jack! ' + getStatus());
                 break;
-            }else{
-                while(get.Sum(dealer) < 17) {
+            } else {
+                while(getSum(dealer) < 17) {
                     dealer.push(getCard());
                     }; 
             
@@ -72,17 +72,17 @@ if (getSum(player) == 21) {
                     
                     if (sumDealer == 21) {
                         alert('У диллера BlackJack!!!' + getStatus());
-                    }else if (sumDealer > 21) {
+                    } else if (sumDealer > 21) {
                         alert('У диллера перебор))) ' + getStatus());
-                    }else if (sumPlayer == sumDealer) {
+                    } else if (sumPlayer == sumDealer) {
                         alert('Победила дружба!' + getStatus());
-                    }else if(sumPlayer > sumDealer) {
+                    } else if(sumPlayer > sumDealer) {
                         alert('Вы победили!!!' + getStatus());
-                    }else{
+                    } else {
                         alert('Вы потерпели поражение..увы' + getStatus());
                     }
             }        
-    }while(answer == '1');
+    } while(answer == '1');
 }
  
 </script> 
