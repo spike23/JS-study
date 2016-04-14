@@ -1,0 +1,76 @@
+<meta charset="utf-8">
+<script>
+
+function getRandomInt (min,max) {
+    return Math.floor(Math.random()* (max - min + 1)) + min;
+}
+
+function getCard() {
+    var cards = ['6','7','8','9','10','J','Q','K','A'];
+    return cards [getRandomInt(0,cards.length - 1)];
+}
+
+function getCost(cards) {
+    switch (cards){
+        case '6': return 6; break;
+        case '7': return 7; break;
+        case '8': return 8; break;
+        case '9': return 9; break;
+        case '10': return 10; break;
+        case 'J': return 10; break;
+        case 'Q': return 10; break;
+        case 'K': return 10; break;
+        default: return 0;
+    }
+}
+
+function getSum(arr) {
+    var summ=0;
+    for (var i = 0; i < arr.length; i++) {
+        summ=summ+getCost(arr[i]);
+    }
+    for (var i = 0; i < arr.length; i++) {
+        if (arr[i]=='A') {
+            if (summ>10) {
+                summ=summ+1;
+            } else {
+                summ=summ+11;
+            }
+        }
+    }
+    return summ;
+}
+
+function getStatus () {
+    return "Дилер: "+dealer.join(" ")+" Сумма карт: "+getSum(dealer)+"\nИгрок: "+player.join(" ")+" Сумма карт: "+getSum(player)+s;
+}
+
+var dealer = [getCard()];
+var player = [getCard(), getCard()];
+var s = "\nХотите еще карту? 1 - да, иначе - нет:";
+
+while ((getSum(player)<=21) && (prompt(getStatus())=='1')) {
+    player.push(getCard());
+}
+
+while ((getSum(dealer)<17) && (getSum(player)!=21)) {
+    dealer.push(getCard());
+}
+
+if (getSum(player)==21) {
+    s='\nИгрок, поздравляем! У Вас Black Jack';
+} else if (getSum(player>21)) {
+    s="\nИгрок, у Вас перебор :-(";
+} else if (getSum(dealer)>21) {
+    s='\nИгрок, поздравляем! У Дилера перебор';
+} else if (getSum(player)==getSum(dealer)){
+    s='\nНичья! Каждый остался при своих';
+} else if (getSum(player)>getSum(dealer)) {
+    s='\nИгрок, поздравляем! Вы выиграли!';
+} else if (getSum(player)<getSum(dealer)) {
+    s='\nИгрок, к сожалению Вы проиграли.';
+}
+
+alert (getStatus());
+
+</script>
